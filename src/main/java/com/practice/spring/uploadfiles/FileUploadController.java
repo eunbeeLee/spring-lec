@@ -1,5 +1,6 @@
 package com.practice.spring.uploadfiles;
 
+import com.practice.spring.uploadfiles.storage.StorageFileNotException;
 import com.practice.spring.uploadfiles.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
@@ -29,11 +30,10 @@ public class FileUploadController {
 
     @GetMapping("/")
     public String listUploadFiles(Model model) throws IOException {
-        model.addAllAttributes("files", storageService.loadAll().map(
-                path ->
-                        MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
-                                "serveFile",
-                                path.getFileName().toString()).build.toUri.toString())
+
+        model.addAttribute("files", storageService.loadAll().map(
+                path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
+                        "serveFile", path.getFileName().toString()).build().toUri().toString())
         .collect(Collectors.toList()));
 
         return "uploadForm";
