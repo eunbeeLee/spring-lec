@@ -44,6 +44,7 @@ public class FileSystemStorageService implements StorageService{
 
     @Override
     public void store(MultipartFile file) {
+        // . 을 /로 바꿔준다.
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         try {
             if (file.isEmpty()){
@@ -67,6 +68,7 @@ public class FileSystemStorageService implements StorageService{
     @Override
     public Stream<Path> loadAll() {
         try {
+            //Files.walk : 하위파일들을 읽어온다.
             return Files.walk(this.rootLocation, 1)
                     .filter(path -> !path.equals(this.rootLocation))
                     .map(this.rootLocation::relativize);
