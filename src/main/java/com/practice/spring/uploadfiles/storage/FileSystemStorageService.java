@@ -68,7 +68,7 @@ public class FileSystemStorageService implements StorageService{
     @Override
     public Stream<Path> loadAll() {
         try {
-            //Files.walk : 하위파일들을 읽어온다.
+            //Files.walk : 하위파일들을 읽어온다. filter: 조건검색 , map: 입력컬렉션을 출력컬렉션으로 매핑
             return Files.walk(this.rootLocation, 1)
                     .filter(path -> !path.equals(this.rootLocation))
                     .map(this.rootLocation::relativize);
@@ -80,6 +80,7 @@ public class FileSystemStorageService implements StorageService{
 
     @Override
     public Path load(String filename) {
+        // rootLocation 뒤에 filename을 붙여준다. Path.resolve
         return rootLocation.resolve(filename);
     }
 
