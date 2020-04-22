@@ -1,6 +1,5 @@
 package com.practice.spring.rabbitMQ;
 
-import com.practice.spring.MessagingRabbitmqApplication;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
