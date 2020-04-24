@@ -1,9 +1,9 @@
-package com.practice.spring;
+package com.practice.spring.authenticatingLDAP;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class AuthenticatingLdapApplication {
 
     public static void main(String[] args) {
