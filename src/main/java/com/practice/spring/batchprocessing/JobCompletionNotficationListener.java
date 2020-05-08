@@ -10,7 +10,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 
-
+/**
+ * 사용된 클래스를 자동으로 빈에 등록
+ * 적용: 클래스
+ */
 @Component
 public class JobCompletionNotficationListener extends JobExecutionListenerSupport {
 
