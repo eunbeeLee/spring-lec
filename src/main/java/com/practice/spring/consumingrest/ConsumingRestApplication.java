@@ -21,6 +21,8 @@ public class ConsumingRestApplication {
         return builder.build();
     }
 
+    //해당 타입의 빈객체가 생성된다.
+    //CommandLineRunner : 구동 시점에 실행 되는 코드가 자바 문자열 아규먼트 배열에 접근해야할 필요가 있는 경우에 사용
     @Bean
     public CommandLineRunner run(RestTemplate restTemplate) throws Exception{
         return args -> {
