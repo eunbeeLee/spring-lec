@@ -13,6 +13,7 @@ public class HelloWorldController {
 
     private final String template = "Hello, %s!";
 
+    //AtomicLong : 원자적 갱신이 가능한 long, 값을 증가하거나 감소하거나 값을 변경 및 형변환이 가능하다.
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/hello-world")
